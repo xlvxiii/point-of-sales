@@ -1,40 +1,45 @@
-<p class="text-center">Registrasi</p>
-<div class="container">
-    <div class="row">
-        <div class="col"></div>
-        <div class="col rounded-top rounded-bottom rounded-end rounded-start p-5">
-            <form action="<?= base_url('auth/registrasi') ?>" method="post" name="data">
-                <input type="hidden" name="id">
-                <p class="mb-0">Nama</p>
-                <div class="form-floating mb-3">
-                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Masukkan nama" value="<?= set_value('nama') ?>">
-                    <small class="text-danger"><?= form_error('nama') ?></small>
-                    <label for="nama">Masukkan nama</label>
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user" action="<?= base_url('auth/registrasi') ?>" method="post" name="data">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama" value="<?= set_value('nama') ?>">
+                                    <small class="text-danger"><?= form_error('nama') ?></small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="username" class="form-control form-control-user" id="username" name="username" placeholder="Username" value="<?= set_value('username') ?>">
+                                    <small class="text-danger"><?= form_error('username') ?></small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                        <small class="text-danger"><?= form_error('password') ?></small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" class="form-control form-control-user" id="confirm_password" name="confirm_password" placeholder="Repeat Password">
+                                        <small class="text-danger"><?= form_error('confirm_password') ?></small>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="<?= base_url('auth') ?>">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="mb-0">Username</p>
-                <div class="form-floating mb-3">
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan username" value="<?= set_value('username') ?>">
-                    <small class="text-danger"><?= form_error('username') ?></small>
-                    <label for="nama">Masukkan username</label>
-                </div>
-                <p class="mb-0">Password</p>
-                <div class="form-floating mb-3">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan password">
-                    <small class="text-danger"><?= form_error('password') ?></small>
-                    <label for="nama">Masukkan password</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" name="confirm_password" id="password" class="form-control" placeholder="Konfirmasi password">
-                    <small class="text-danger"><?= form_error('confirm_password') ?></small>
-                    <label for="nama">Konfirmasi password</label>
-                </div>
-                <div class="text-center">
-                    <input type="button" class="btn btn-primary" value="Login" onclick="location.href='<?php echo base_url(); ?>'">
-                    <input type="submit" class="btn btn-primary" value="Register" name="register">
-                </div>
-            </form>
+            </div>
         </div>
-        <div class="col"></div>
 
     </div>
-</div>

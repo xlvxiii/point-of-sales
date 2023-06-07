@@ -4,7 +4,13 @@ class User extends CI_Controller
 {
     public function index()
     {
+        $data['title'] = 'Kasir';
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
-        echo 'selamat datang' . $data['user']['nama'];
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('template/topbar', $data);
+        $this->load->view('user/index', $data);
+        $this->load->view('template/footer');
     }
 }

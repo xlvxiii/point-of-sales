@@ -1,31 +1,45 @@
 <div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col rounded-top rounded-bottom rounded-end rounded-start p-5">
-      <p class="text-center">Login</p>
-      <?= $this->session->flashdata('message') ?>
-      <form action="<?= base_url('auth') ?>" method="post" name="data">
-        <input type="hidden" name="id">
-        <p class="mb-0">Username</p>
-        <div class="form-floating mb-3">
-          <input type="text" name="username" id="username" class="form-control" placeholder="Masukkan username" value="<?= set_value('username') ?>">
-          <small class="text-danger"><?= form_error('username') ?></small>
-          <label for="nama">Masukkan username</label>
-        </div>
-        <p class="mb-0">Password</p>
-        <div class="form-floating mb-3">
-          <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan password">
-          <small class="text-danger"><?= form_error('password') ?></small>
-          <label for="nama">Masukkan password</label>
-        </div>
-        <div class="text-center">
-          <input type="submit" class="btn btn-primary" value="Login" name="login">
-          <input type="button" class="btn btn-primary" value="Registrasi" name="registrasi" onclick="location.href='<?= 'Auth/registrasi' ?>'">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-lg-7">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                    <?= $this->session->flashdata('message') ?>
+                                </div>
+                                <form class="user" action="<?= base_url('auth') ?>" method="post" name="data">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control form-control-user" id="" name="username" placeholder="Enter Username..." value="<?= set_value('username') ?>">
+                                        <small class="text-danger"><?= form_error('username') ?></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-control-user" id="" name="password" placeholder="Enter Password" value="<?= set_value('password') ?>">
+                                        <small class="text-danger"><?= form_error('password') ?></small>
+                                    </div>
+                                    <button type="submit" href="index.html" class="btn btn-primary btn-user btn-block">
+                                        Login
+                                    </button>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="<?= base_url('auth/registrasi') ?>">Create an Account!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-      </form>
     </div>
-    <div class="col"></div>
 
-  </div>
 </div>
