@@ -12,7 +12,7 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
+    <!-- Nav Item - Profil -->
     <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -34,7 +34,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('menu/index') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Menu</span></a>
     </li>
@@ -54,7 +54,7 @@
     </div>
 
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('auth/logout') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Logout</span></a>
     </li>

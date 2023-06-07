@@ -24,7 +24,7 @@
                                         <input type="password" class="form-control form-control-user" id="" name="password" placeholder="Enter Password" value="<?= set_value('password') ?>">
                                         <small class="text-danger"><?= form_error('password') ?></small>
                                     </div>
-                                    <button type="submit" href="index.html" class="btn btn-primary btn-user btn-block">
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">
                                         Login
                                     </button>
                                 </form>
