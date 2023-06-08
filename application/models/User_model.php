@@ -19,4 +19,18 @@ class User_model extends CI_Model
     {
         return $this->db->get_where('user', ['username' => $username])->row_array();
     }
+
+    public function edit_akun($id, $data_user)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('user', $data_user);
+        return true;
+    }
+
+    public function edit_password($id, $data_password)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('user', $data_password);
+        return true;
+    }
 }
