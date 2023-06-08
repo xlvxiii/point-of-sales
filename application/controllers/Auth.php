@@ -6,6 +6,7 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->library('cart');
     }
     public function index()
     {
@@ -34,7 +35,7 @@ class Auth extends CI_Controller
                     'username' => $user['username']
                 ];
                 $this->session->set_userdata($data);
-                redirect('user');
+                redirect('transaksi');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password salah</div>');
                 redirect('auth');
@@ -74,6 +75,8 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata('username');
+        $this->session->unset_userdata('kode_transaksi');
+        $this->cart->destroy();
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Anda telah logout</div>');
         redirect('auth');
