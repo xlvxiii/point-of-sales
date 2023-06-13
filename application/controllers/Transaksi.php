@@ -98,4 +98,13 @@ class Transaksi extends CI_Controller
             redirect('transaksi');
         }
     }
+
+    public function reset()
+    {
+        if ($this->session->userdata('kode_transaksi') != null) {
+            $this->session->unset_userdata('kode_transaksi');
+            $this->cart->destroy();
+        }
+        redirect('transaksi');
+    }
 }

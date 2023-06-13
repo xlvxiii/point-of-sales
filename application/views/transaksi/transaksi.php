@@ -125,6 +125,11 @@
         </div>
 
         <div class="text-right col-12">
+            <a href="<?= base_url('transaksi/reset') ?>">
+                <button type="submit" class="btn btn-danger">
+                    Reset
+                </button>
+            </a>
             <button type="submit" class="btn btn-info" onclick="printContent('print')">
                 Cetak
             </button>
