@@ -24,4 +24,10 @@ class Transaksi_model extends CI_Model
     {
         return ($this->db->get('transaksi'))->result();
     }
+
+    public function get_by_id($id)
+    {
+        return ($this->db->get_where('transaksi', array('id' => $id)))->row_array();
+    }
+
 }

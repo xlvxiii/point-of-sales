@@ -81,11 +81,14 @@ class Transaksi extends CI_Controller
 
         endforeach;
 
+        $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+
         //Save transaksi
         $kode_transaksi = $this->session->userdata('kode_transaksi');
         $serialized_cart = serialize($this->cart->contents());
         $data_transaksi = [
             'kode_transaksi' => $kode_transaksi,
+            'kasir' => $user['nama'],
             'detail' => $serialized_cart,
             'total_harga' => $this->cart->total(),
             'tanggal' => time()

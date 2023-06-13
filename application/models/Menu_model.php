@@ -38,5 +38,4 @@ class Menu_model extends CI_Model
         $this->db->update('menu', $data_menu);
         return true;
     }
-
 }

@@ -15,23 +15,40 @@ class Laporan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
 
         $get_laporan = $this->Laporan_model->get_data();
+        $get_transaksi = $this->Transaksi_model->get_data();
+
         $data_laporan = [
             'row' => $get_laporan,
             'title' => "Laporan",
-            'no' => 1
-        ];
+            'no' => 1,
 
-        $get_transaksi = $this->Transaksi_model->get_data();
-        $data_transaksi = [
             'row_transaksi' => $get_transaksi,
-            'title' => "Transaksi",
-            'no' => 1
+            'no_transaksi' => 1
         ];
 
         $this->load->view('template/header', $data);
         $this->load->view('template/sidebar', $data);
         $this->load->view('template/topbar', $data);
-        $this->load->view('laporan/laporan', $data_laporan, $data_transaksi);
+        $this->load->view('laporan/laporan', $data_laporan);
+        $this->load->view('template/footer');
+    }
+
+    public function log_transaksi($id)
+    {
+        $data['user'] = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
+        $data['title'] = 'Log Transaksi';
+        $get_transaksi = $this->Transaksi_model->get_by_id($id);
+        $detail = unserialize($get_transaksi['detail']);
+
+        $data_transaksi = [
+            'row' => $get_transaksi,
+            'detail' => $detail
+        ];
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $this->load->view('template/topbar', $data);
+        $this->load->view('laporan/log_transaksi', $data_transaksi);
         $this->load->view('template/footer');
     }
 }

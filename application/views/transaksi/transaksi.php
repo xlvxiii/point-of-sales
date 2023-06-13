@@ -38,30 +38,6 @@
 
             <div class="card-body">
 
-                <!--
-                <table>
-                    <thead>
-                        <td>Nama</td>
-                        <td>Jumlah</td>
-                        <td>Harga</td>
-                    </thead>
-                    <tbody>
-                        <?php /*foreach ($this->cart->contents() as $items) : ?>
-                            <tr>
-                                <td><?= $items['name'] ?></td>
-                                <td><?= $items['qty'] ?></td>
-                                <td><?= $items['price'] ?></td>
-
-                            </tr>
-                        <?php endforeach ?>
-                        <tr>
-                            <td>Total</td>
-                            <td><?= $this->cart->total() */ ?></td>
-                        </tr>
-                    </tbody>
-                </table>
-                -->
-
                 <h5 class='card-tittle mb-0 text-center'><b>Toko</b></h5>
                 <p class='m-0 small text-center'>Alamat</p>
                 <p class='small text-center'>Telp. </p>
