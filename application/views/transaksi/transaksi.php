@@ -20,7 +20,7 @@
                         </div>
                         <div class="col-sm-6">
 
-                            <input type="text" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah">
+                            <input type="number" class="form-control" id="jumlah" name="jumlah" placeholder="Jumlah">
                         </div>
 
                     </div>

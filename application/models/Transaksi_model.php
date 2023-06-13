@@ -11,7 +11,7 @@ class Transaksi_model extends CI_Model
 
     public function cek_kode($kode_transaksi)
     {
-        return $this->db->query("SELECT COUNT(kode_transaksi) FROM transaksi WHERE kode_transaksi='$kode_transaksi'")->result;
+        return $this->db->query("SELECT * FROM transaksi WHERE kode_transaksi='$kode_transaksi'");
     }
 
     public function save($data)

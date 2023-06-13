@@ -26,10 +26,11 @@ class Transaksi extends CI_Controller
 
         if ($this->session->userdata('kode_transaksi') == null) {
             $is_exist = 1;
-            while ($is_exist > 0) {
+            while ($is_exist != 0) {
                 $random_number = random_int(100000, 999999);
-                $is_exist = $this->Transaksi_model->cek_kode($random_number);
-                if ($is_exist == 0) {
+                $query = $this->Transaksi_model->cek_kode($random_number);
+                if ($query->num_rows() == 0) {
+                    $is_exist = 0;
                     $this->session->set_userdata('kode_transaksi', $random_number);
                 }
             }
@@ -85,7 +86,9 @@ class Transaksi extends CI_Controller
         $serialized_cart = serialize($this->cart->contents());
         $data_transaksi = [
             'kode_transaksi' => $kode_transaksi,
-            'detail' => $serialized_cart
+            'detail' => $serialized_cart,
+            'total_harga' => $this->cart->total(),
+            'tanggal' => time()
         ];
         $response = $this->Transaksi_model->save($data_transaksi);
         if ($response) {
